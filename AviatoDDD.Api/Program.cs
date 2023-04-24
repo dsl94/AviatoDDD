@@ -1,4 +1,5 @@
 using AviatoDDD.Domain.Data;
+using AviatoDDD.Repository.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AviatoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectionString")));
-
+builder.Services.AddAutoMapper(typeof(AviatoMappingProfiles));
 
 var app = builder.Build();
 
