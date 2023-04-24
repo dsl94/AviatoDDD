@@ -1,0 +1,14 @@
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/bin/Debug/net7.0/AviatoDDD.Domain.deps.json
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/bin/Debug/net7.0/AviatoDDD.Domain.runtimeconfig.json
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/bin/Debug/net7.0/AviatoDDD.Domain.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/bin/Debug/net7.0/AviatoDDD.Domain.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.csproj.AssemblyReference.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.AssemblyInfoInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.AssemblyInfo.cs
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.csproj.CoreCompileInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/refint/AviatoDDD.Domain.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/AviatoDDD.Domain.genruntimeconfig.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Domain/obj/Debug/net7.0/ref/AviatoDDD.Domain.dll

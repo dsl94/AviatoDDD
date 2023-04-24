@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EfCoreDialogsState">
+    <option name="keyValueStorage">
+      <map>
+        <entry key="Common:195c475a-95c0-46c3-ac2c-feafd3a349fb:dbContext" value="AviatoDDD.Domain.Data.AviatoDbContext" />
+        <entry key="Common:1e0b837e-b9ae-49ed-9162-ccdad55f66ff:dbContext" value="AviatoDDD.Domain.Data.AviatoDbContext" />
+        <entry key="Common:2520497d-042f-4784-8e80-cbcd00ce6ab4:dbContext" value="AviatoDDD.Domain.Data.AviatoDbContext" />
+        <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:outputFolder" value="Migrations" />
+        <entry key="Common:useDefaultConnection" value="true" />
+      </map>
+    </option>
+  </component>
+</project>

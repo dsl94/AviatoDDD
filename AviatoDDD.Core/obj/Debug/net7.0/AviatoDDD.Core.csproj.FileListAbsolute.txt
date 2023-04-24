@@ -1,0 +1,12 @@
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/bin/Debug/net7.0/AviatoDDD.Core.deps.json
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/bin/Debug/net7.0/AviatoDDD.Core.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/bin/Debug/net7.0/AviatoDDD.Core.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.csproj.AssemblyReference.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.AssemblyInfoInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.AssemblyInfo.cs
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.csproj.CoreCompileInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/refint/AviatoDDD.Core.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/AviatoDDD.Core.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Core/obj/Debug/net7.0/ref/AviatoDDD.Core.dll

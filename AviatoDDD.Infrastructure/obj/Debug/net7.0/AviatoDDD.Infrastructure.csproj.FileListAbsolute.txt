@@ -1,0 +1,17 @@
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Infrastructure.deps.json
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Infrastructure.runtimeconfig.json
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Infrastructure.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Infrastructure.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Core.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/bin/Debug/net7.0/AviatoDDD.Core.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.csproj.AssemblyReference.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.AssemblyInfoInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.AssemblyInfo.cs
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.csproj.CopyComplete
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/refint/AviatoDDD.Infrastructure.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.pdb
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/AviatoDDD.Infrastructure.genruntimeconfig.cache
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Infrastructure/obj/Debug/net7.0/ref/AviatoDDD.Infrastructure.dll
