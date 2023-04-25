@@ -1,4 +1,7 @@
 using AviatoDDD.Domain.Data;
+using AviatoDDD.Domain.Repositories;
+using AviatoDDD.Domain.Services;
+using AviatoDDD.Repository.Business;
 using AviatoDDD.Repository.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,8 +15,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AviatoDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectionString")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AviatoConnectionString")));
+
+// Repositories
+builder.Services.AddScoped<IAirplaneRepository, AirplaneRepository>();
+
 builder.Services.AddAutoMapper(typeof(AviatoMappingProfiles));
+
+// Services
+builder.Services.AddScoped<IAirplaneService, AirplaneService>();
 
 var app = builder.Build();
 
