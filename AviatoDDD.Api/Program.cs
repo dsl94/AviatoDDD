@@ -1,11 +1,21 @@
 using AviatoDDD.Domain.Data;
 using AviatoDDD.Domain.Repositories;
 using AviatoDDD.Domain.Services;
+using AviatoDDD.Middlewares;
 using AviatoDDD.Repository.Business;
 using AviatoDDD.Repository.Mappings;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .MinimumLevel.Information()
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 // Add services to the container.
 
@@ -33,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 

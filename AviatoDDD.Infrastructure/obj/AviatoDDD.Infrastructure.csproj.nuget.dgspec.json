@@ -116,6 +116,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0-preview.3.23174.2, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.0.0-dev-01958, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.1-dev-00295, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.1.1-dev-00910, )"
             }
           },
           "imports": [

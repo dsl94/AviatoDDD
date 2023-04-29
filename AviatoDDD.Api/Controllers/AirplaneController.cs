@@ -1,5 +1,6 @@
 using AviatoDDD.Domain.DTO.Airplane;
 using AviatoDDD.Domain.Services;
+using AviatoDDD.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AviatoDDD.Controllers;
@@ -37,6 +38,7 @@ public class AirplaneController: ControllerBase
     }
 
     [HttpPost]
+    [ValidateModel]
     public async Task<IActionResult> Create([FromBody] AddAirplaneRequestDTO dto)
     {
         var created = await _airplaneService.CreateAsync(dto);

@@ -92,3 +92,12 @@
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/AutoMapper.dll
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.AspNetCore.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Extensions.Hosting.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Extensions.Logging.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Formatting.Compact.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Settings.Configuration.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.Console.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.Debug.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.File.dll

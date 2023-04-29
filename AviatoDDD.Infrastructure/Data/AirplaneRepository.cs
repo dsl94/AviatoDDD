@@ -31,33 +31,17 @@ public class AirplaneRepository: IAirplaneRepository
         return airplane;
     }
 
-    public async Task<Airplane?> UpdateAsync(Guid id, Airplane airplane)
+    public async Task<Airplane> UpdateAsync(Airplane airplane)
     {
-        var existing = await _dbContext.Airplanes.FindAsync(id);
-        if (existing == null)
-        {
-            return null;
-        }
-        existing.Name = airplane.Name;
-        existing.EconomyClassCapacity = airplane.EconomyClassCapacity;
-        existing.BusinessClassCapacity = airplane.BusinessClassCapacity;
-        existing.FirstClassCapacity = airplane.FirstClassCapacity;
-
         await _dbContext.SaveChangesAsync();
 
-        return existing;
+        return airplane;
     }
 
-    public async Task<Airplane?> DeleteAsync(Guid id)
+    public async Task<Airplane> DeleteAsync(Airplane airplane)
     {
-        var existing = await _dbContext.Airplanes.FindAsync(id);
-        if (existing == null)
-        {
-            return null;
-        }
-
-        _dbContext.Airplanes.Remove(existing);
+        _dbContext.Airplanes.Remove(airplane);
         await _dbContext.SaveChangesAsync();
-        return existing;
+        return airplane;
     }
 }
