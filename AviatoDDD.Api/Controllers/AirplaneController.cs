@@ -29,10 +29,6 @@ public class AirplaneController: ControllerBase
     public async Task<IActionResult> GetById([FromRoute] Guid id)
     {
         var airplane = await _airplaneService.GetOneAsync(id);
-        if (airplane == null)
-        {
-            return NotFound();
-        }
 
         return Ok(airplane);
     }
@@ -48,14 +44,10 @@ public class AirplaneController: ControllerBase
 
     [HttpPut]
     [Route("{id:guid}")]
+    [ValidateModel]
     public async Task<IActionResult> Update([FromBody] AddAirplaneRequestDTO dto, [FromRoute] Guid id)
     {
         var updated = await _airplaneService.UpdateAsync(id, dto);
-
-        if (updated == null)
-        {
-            return NotFound();
-        }
 
         return Ok(updated);
     }
@@ -65,12 +57,8 @@ public class AirplaneController: ControllerBase
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         var deleted = await _airplaneService.DeleteAsync(id);
-        if (deleted == null)
-        {
-            return NotFound();
-        }
 
-        return Ok();
+        return Ok(deleted);
     }
     
 }

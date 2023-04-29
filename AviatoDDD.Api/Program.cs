@@ -29,11 +29,13 @@ builder.Services.AddDbContext<AviatoDbContext>(options =>
 
 // Repositories
 builder.Services.AddScoped<IAirplaneRepository, AirplaneRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddAutoMapper(typeof(AviatoMappingProfiles));
 
 // Services
 builder.Services.AddScoped<IAirplaneService, AirplaneService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 
