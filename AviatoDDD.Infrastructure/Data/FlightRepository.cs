@@ -15,12 +15,14 @@ public class FlightRepository: IFlightRepository
     
     public async Task<List<Flight>> GetAllAsync()
     {
-        return await _dbContext.Flights.Include(flight => flight.Airplane).ToListAsync();
+        return await _dbContext.Flights
+            .Include(flight => flight.Airplane).ToListAsync();
     }
 
     public async Task<Flight?> GetOneAsync(Guid id)
     {
-        return await _dbContext.Flights.Include(flight => flight.Airplane)
+        return await _dbContext.Flights
+            .Include(flight => flight.Airplane)
             .SingleOrDefaultAsync(flight => flight.Id == id);
     }
 

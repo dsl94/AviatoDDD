@@ -8,6 +8,7 @@ public class Booking
     public BookingStatus BookingStatus { get; set; }
     public Guid FlightId { get; set; }
     public Guid CustomerId { get; set; }
+    public int PointsToUse { get; set; }
 
     // Navigation properties
     public Flight Flight { get; set; }

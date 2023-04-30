@@ -1,5 +1,6 @@
 using AutoMapper;
 using AviatoDDD.Domain.DTO.Airplane;
+using AviatoDDD.Domain.DTO.Booking;
 using AviatoDDD.Domain.DTO.Customer;
 using AviatoDDD.Domain.DTO.Flight;
 using AviatoDDD.Domain.Enums;
@@ -28,5 +29,18 @@ public class AviatoMappingProfiles: Profile
         // Flight Mappings
         CreateMap<AddFlightRequestDTO, Flight>();
         CreateMap<Flight, FlightDTO>();
+        
+        // Booking Mappings
+        CreateMap<Booking, BookingDTO>()
+            .ForMember(dest => dest.ClassType,
+                act => act.MapFrom
+                    (src => src.ClassType.ToString()))
+            .ForMember(dest => dest.BookingStatus,
+                act => act.MapFrom
+                    (src => src.BookingStatus.ToString()));
+        CreateMap<CreateBookingOfferDTO, Booking>()
+            .ForMember(dest => dest.ClassType, 
+                act => act.MapFrom
+                    (src => Enum.Parse<ClassType>(src.ClassType)));
     }
 }

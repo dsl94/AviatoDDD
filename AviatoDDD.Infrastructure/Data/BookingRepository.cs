@@ -1,5 +1,6 @@
 using AviatoDDD.Domain.Models;
 using AviatoDDD.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace AviatoDDD.Domain.Data;
 
@@ -12,28 +13,41 @@ public class BookingRepository: IBookingRepository
         _dbContext = dbContext;
     }
     
-    public Task<List<Booking>> GetAllAsync()
+    public async Task<List<Booking>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _dbContext.Bookings
+            .Include(booking => booking.Flight)
+            .Include(booking => booking.Customer)
+            .ToListAsync();
     }
 
-    public Task<Booking?> GetOneAsync(Guid id)
+    public async Task<Booking?> GetOneAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Bookings
+            .Include(booking => booking.Flight)
+            .Include(booking => booking.Customer)
+            .SingleOrDefaultAsync(booking => booking.Id == id);
     }
 
-    public Task<Booking> CreateAsync(Booking booking)
+    public async Task<Booking> CreateAsync(Booking booking)
     {
-        throw new NotImplementedException();
+        await _dbContext.Bookings.AddAsync(booking);
+        await _dbContext.SaveChangesAsync();
+
+        return booking;
     }
 
-    public Task<Booking?> UpdateAsync(Booking booking)
+    public async Task<Booking?> UpdateAsync(Booking booking)
     {
-        throw new NotImplementedException();
+        await _dbContext.SaveChangesAsync();
+        
+        return booking;
     }
 
-    public Task<Booking?> DeleteAsync(Booking booking)
+    public async Task<Booking?> DeleteAsync(Booking booking)
     {
-        throw new NotImplementedException();
+        _dbContext.Bookings.Remove(booking);
+        await _dbContext.SaveChangesAsync();
+        return booking;
     }
 }
