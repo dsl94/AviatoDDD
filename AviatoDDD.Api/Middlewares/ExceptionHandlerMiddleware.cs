@@ -1,4 +1,5 @@
 using System.Net;
+using AutoMapper;
 using AviatoDDD.Domain.DTO;
 using AviatoDDD.Domain.Enums;
 using AviatoDDD.Domain.Exceptions;
@@ -26,6 +27,10 @@ public class ExceptionHandlerMiddleware
         {
             HandleNotFoundException(e, httpContext);
         }
+        catch (AutoMapperMappingException e)
+        {
+            HandleAutoMapperMappingException(e, httpContext);
+        }
         catch (Exception e)
         {
             HandleGeneralException(e, httpContext);
@@ -48,6 +53,13 @@ public class ExceptionHandlerMiddleware
         httpContext.Response.StatusCode = 500;
         var errorResponse = new ErrorResponse() { ErrorCode = ErrorCode.GeneralError, ErrorMessage = e.Message };
         await httpContext.Response.WriteAsJsonAsync(errorResponse);
-
+    }
+    private async void HandleAutoMapperMappingException(Exception e, HttpContext httpContext)
+    {
+        _logger.LogError(e.Message);
+        httpContext.Response.ContentType = "application/json";
+        httpContext.Response.StatusCode = 400;
+        var errorResponse = new ErrorResponse() { ErrorCode = ErrorCode.BadRequest, ErrorMessage = e.Message };
+        await httpContext.Response.WriteAsJsonAsync(errorResponse);
     }
 }

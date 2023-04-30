@@ -15,7 +15,13 @@ public class AviatoMappingProfiles: Profile
         CreateMap<Airplane, AddAirplaneRequestDTO>().ReverseMap();
         
         // Customer Mappings
-        CreateMap<Customer, CustomerDTO>().ReverseMap();
-        CreateMap<Customer, AddCustomerRequestDTO>().ReverseMap();
+        CreateMap<Customer, CustomerDTO>()
+            .ForMember(dest => dest.CustomerType, 
+                act => act.MapFrom
+                    (src => src.CustomerType.ToString()));
+        CreateMap<AddCustomerRequestDTO, Customer>()
+            .ForMember(dest => dest.CustomerType, 
+                act => act.MapFrom
+                    (src => Enum.Parse<CustomerType>(src.CustomerType)));
     }
 }

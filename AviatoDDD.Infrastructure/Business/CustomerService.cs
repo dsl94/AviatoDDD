@@ -57,7 +57,7 @@ public class CustomerService: ICustomerService
         
         existing.Name = customer.Name;
         existing.Points = customer.Points;
-        existing.CustomerType = customer.CustomerType;
+        existing.CustomerType = Enum.Parse<CustomerType>(customer.CustomerType);
 
         existing = await _customerRepository.UpdateAsync(existing);
 

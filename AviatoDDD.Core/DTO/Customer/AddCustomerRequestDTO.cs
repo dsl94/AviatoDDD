@@ -9,5 +9,5 @@ public class AddCustomerRequestDTO
     public string Name { get; set; }
     public int Points { get; set; } = 0;
     [Required]
-    public CustomerType CustomerType { get; set; }
+    public string CustomerType { get; set; }
 }
