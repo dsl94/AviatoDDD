@@ -11,6 +11,7 @@ public class Flight
     public float BasePrice { get; set; }
     public Guid AirplaneId { get; set; }
 
+    // Navigation properties
     public Airplane Airplane { get; set; }
     public List<Booking> Bookings { get; set; }
 }
