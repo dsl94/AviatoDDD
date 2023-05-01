@@ -35,7 +35,7 @@ public class BookingService: IBookingService
 
     public async Task<BookingDTO> CreateBookingOffer(CreateBookingOfferDTO dto)
     {
-        // todo - Check if customer already have booking for requested flight
+        await CheckIfAlreadyHasBooking(dto.FlightId, dto.CustomerId);
         
         var booking = _mapper.Map<Booking>(dto);
         var classType = Enum.Parse<ClassType>(dto.ClassType);
@@ -47,14 +47,16 @@ public class BookingService: IBookingService
         // Fetch flight
         var flight = await GetFlight(dto.FlightId);
         OfferValidationUtility.ValidateIfFlightCanBeBookedAtThisMoment(flight.DateAndTime);
-
+        OfferValidationUtility.CheckIfFlightHasFreeSeats(flight, booking.ClassType);
+        
         var offeredPrice =
             OfferCalculationUtility.CalculatePrice(
                 flight.BasePrice,
                 customer.CustomerType,
                 classType,
                 dto.PointsToUse,
-                flight.DateAndTime);
+                flight.DateAndTime,
+                _bookingProperties);
 
         booking.ClassType = classType;
         booking.Customer = customer;
@@ -63,8 +65,9 @@ public class BookingService: IBookingService
         booking.BookingStatus = BookingStatus.Offered;
 
         booking = await _bookingRepository.CreateAsync(booking);
-        
-        // todo - Subtract points from customer and save
+
+        customer.Points -= booking.PointsToUse;
+        await _customerRepository.UpdateAsync(customer);
 
         return _mapper.Map<BookingDTO>(booking);
     }
@@ -89,5 +92,16 @@ public class BookingService: IBookingService
         }
 
         throw new EntityNotFoundException(ErrorCode.EntityNotFound, "Flight with id: " + flightId + " not found");
+    }
+
+    private async Task<Boolean> CheckIfAlreadyHasBooking(Guid flightId, Guid customerId)
+    {
+        var booking = await _bookingRepository.FindByFlightIdAndCustomerId(flightId, customerId);
+        if (booking != null)
+        {
+            throw new BookingCreationException(ErrorCode.AlreadyHasBooking, "Customer already has booking for flight with id: " + flightId);
+        }
+
+        return true;
     }
 }

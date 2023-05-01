@@ -7,4 +7,6 @@ public class ErrorCode
     public const string BadRequest = "BAD_REQUEST";
     public const string NotEnoughPoints = "NOT_ENOUGH_POINTS";
     public const string TooLateToBook = "TOO_LATE_TO_BOOK";
+    public const string AlreadyHasBooking = "CUSTOMER_ALREADY_HAS_BOOKING";
+    public const string FlightFull = "FLIGHT_FULL";
 }

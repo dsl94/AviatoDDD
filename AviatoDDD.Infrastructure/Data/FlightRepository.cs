@@ -23,6 +23,7 @@ public class FlightRepository: IFlightRepository
     {
         return await _dbContext.Flights
             .Include(flight => flight.Airplane)
+            .Include(flight => flight.Bookings)
             .SingleOrDefaultAsync(flight => flight.Id == id);
     }
 

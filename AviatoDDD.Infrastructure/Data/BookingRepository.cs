@@ -50,4 +50,10 @@ public class BookingRepository: IBookingRepository
         await _dbContext.SaveChangesAsync();
         return booking;
     }
+
+    public async Task<Booking?> FindByFlightIdAndCustomerId(Guid flightId, Guid customerId)
+    {
+        return await _dbContext.Bookings.FirstOrDefaultAsync(
+            booking => booking.FlightId == flightId && booking.CustomerId == customerId);
+    }
 }

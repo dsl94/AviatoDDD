@@ -1,9 +1,10 @@
 using AviatoDDD.Domain.Enums;
 using AviatoDDD.Domain.Exceptions;
+using AviatoDDD.Domain.Models;
 
 namespace AviatoDDD.Repository.Utilities;
 
-public class OfferValidationUtility
+public static class OfferValidationUtility
 {
     public static void ValidatePoints(int available, int requested)
     {
@@ -30,6 +31,40 @@ public class OfferValidationUtility
         {
             throw new BookingCreationException(ErrorCode.TooLateToBook,
                 "Flight is in less then 5 hours so it can not be booked");
+        }
+    }
+    
+    public static void CheckIfFlightHasFreeSeats(Flight flight, ClassType classType)
+    {
+        var usedSeats = 0;
+        var itHasSeats = true;
+        foreach (var booking in flight.Bookings)
+        {
+            if (booking.ClassType.Equals(classType))
+            {
+                usedSeats++;
+            }
+        }
+
+        switch (classType)
+        {
+            case ClassType.Economy:
+                itHasSeats = usedSeats < flight.Airplane.EconomyClassCapacity;
+                break;
+            case ClassType.Business:
+                itHasSeats = usedSeats < flight.Airplane.BusinessClassCapacity;
+                break;
+            case ClassType.First:
+                itHasSeats = usedSeats < flight.Airplane.FirstClassCapacity;
+                break;
+            default:
+                itHasSeats = false;
+                break;
+        }
+
+        if (!itHasSeats)
+        {
+            throw new BookingCreationException(ErrorCode.FlightFull, "All seats are sold out for requested flight");
         }
     }
 }

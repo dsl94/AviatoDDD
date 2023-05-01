@@ -31,6 +31,10 @@ public class ExceptionHandlerMiddleware
         {
             HandleAutoMapperMappingException(e, httpContext);
         }
+        catch (BookingCreationException e)
+        {
+            HandleBookingException(e, httpContext);
+        }
         catch (Exception e)
         {
             HandleGeneralException(e, httpContext);
@@ -60,6 +64,15 @@ public class ExceptionHandlerMiddleware
         httpContext.Response.ContentType = "application/json";
         httpContext.Response.StatusCode = 400;
         var errorResponse = new ErrorResponse() { ErrorCode = ErrorCode.BadRequest, ErrorMessage = e.Message };
+        await httpContext.Response.WriteAsJsonAsync(errorResponse);
+    }
+    
+    private async void HandleBookingException(BookingCreationException e, HttpContext httpContext)
+    {
+        _logger.LogError(e.Message);
+        httpContext.Response.ContentType = "application/json";
+        httpContext.Response.StatusCode = 400;
+        var errorResponse = new ErrorResponse() { ErrorCode = e.ErrorCode, ErrorMessage = e.Message };
         await httpContext.Response.WriteAsJsonAsync(errorResponse);
     }
 }
