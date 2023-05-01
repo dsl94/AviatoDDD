@@ -40,7 +40,7 @@ public static class OfferValidationUtility
         var itHasSeats = true;
         foreach (var booking in flight.Bookings)
         {
-            if (booking.ClassType.Equals(classType))
+            if (booking.ClassType.Equals(classType) && booking.BookingStatus.Equals(BookingStatus.Confirmed))
             {
                 usedSeats++;
             }
