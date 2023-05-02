@@ -10,6 +10,7 @@ public class BookingDTO
     public string ClassType { get; set; }
     public string BookingStatus { get; set; }
     public int PointsToUse { get; set; }
+    public DateTime CreatedAt { get; set; }
     public FlightDTO Flight { get; set; }
     public CustomerDTO Customer { get; set; }
 }

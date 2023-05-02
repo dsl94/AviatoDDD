@@ -21,6 +21,24 @@ public class BookingRepository: IBookingRepository
             .ToListAsync();
     }
 
+    public async Task<List<Booking>> GetAllForCustomerAsync(Guid customerId)
+    {
+        return await _dbContext.Bookings
+            .Include(booking => booking.Flight)
+            .Include(booking => booking.Customer)
+            .Where(booking => booking.CustomerId == customerId)
+            .ToListAsync();
+    }
+
+    public async Task<List<Booking>> GetAllForFlightAsync(Guid flightId)
+    {
+        return await _dbContext.Bookings
+            .Include(booking => booking.Flight)
+            .Include(booking => booking.Customer)
+            .Where(booking => booking.FlightId == flightId)
+            .ToListAsync();
+    }
+
     public async Task<Booking?> GetOneAsync(Guid id)
     {
         return await _dbContext.Bookings

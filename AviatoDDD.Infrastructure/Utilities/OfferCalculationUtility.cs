@@ -15,7 +15,7 @@ public static class OfferCalculationUtility
         BookingProperties? bookingProperties)
     {
         // ((BasePrice + (30 - 0.05% per hour)) * ClassMultiplier)) - points to user
-        var finalPrice = basePrice + GetHourPercentage(dateAndTimeOfFlight);
+        var finalPrice = basePrice + GetHourPercentage(dateAndTimeOfFlight, basePrice);
         finalPrice = finalPrice * GetClassMultiplier(bookingProperties, classType);
         
         // First we subtract points from original price
@@ -35,12 +35,14 @@ public static class OfferCalculationUtility
         return finalPrice;
     }
 
-    private static float GetHourPercentage(DateTime flightTime)
+    private static float GetHourPercentage(DateTime flightTime, float basePrice)
     {
         DateTime now = DateTime.Now;
         int hours = (int)Math.Round((flightTime - now).TotalHours);
         
-        return (float)(30 - (0.05 * hours));
+        var percentage = (float)(30 - (0.05 * hours));
+
+        return basePrice * percentage / 100;
     }
 
     private static int GetClassMultiplier(BookingProperties? bookingProperties, ClassType classType)

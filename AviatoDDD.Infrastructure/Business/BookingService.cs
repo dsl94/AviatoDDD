@@ -33,7 +33,35 @@ public class BookingService: IBookingService
         _bookingProperties = configuration.GetSection("BookingProperties").Get<BookingProperties>();
     }
 
-    public async Task<BookingDTO> CreateBookingOffer(CreateBookingOfferDTO dto)
+    public async Task<List<BookingDTO>> GetAllAsync()
+    {
+        var all = await _bookingRepository.GetAllAsync();
+        
+        return _mapper.Map<List<BookingDTO>>(all);
+    }
+
+    public async Task<List<BookingDTO>> GetAllForCustomerAsync(Guid customerId)
+    {
+        var all = await _bookingRepository.GetAllForCustomerAsync(customerId);
+        
+        return _mapper.Map<List<BookingDTO>>(all);
+    }
+
+    public async Task<List<BookingDTO>> GetAllForFlightAsync(Guid flightId)
+    {
+        var all = await _bookingRepository.GetAllForFlightAsync(flightId);
+        
+        return _mapper.Map<List<BookingDTO>>(all);
+    }
+
+    public async Task<BookingDTO> GetOneAsync(Guid id)
+    {
+        var booking = await _bookingRepository.GetOneAsync(id);
+
+        return _mapper.Map<BookingDTO>(booking);
+    }
+
+    public async Task<BookingDTO> CreateBookingOfferAsync(CreateBookingOfferDTO dto)
     {
         await CheckIfAlreadyHasBooking(dto.FlightId, dto.CustomerId);
         
@@ -63,13 +91,51 @@ public class BookingService: IBookingService
         booking.Flight = flight;
         booking.Price = offeredPrice;
         booking.BookingStatus = BookingStatus.Offered;
+        booking.CreatedAt = DateTime.Now;
 
         booking = await _bookingRepository.CreateAsync(booking);
 
+        return _mapper.Map<BookingDTO>(booking);
+    }
+
+    public async Task<BookingDTO> AcceptBookingOfferAsync(Guid id)
+    {
+        var booking = await _bookingRepository.GetOneAsync(id);
+        if (booking == null)
+        {
+            throw new EntityNotFoundException(ErrorCode.EntityNotFound, "Booking with id: " + id + " not found");
+        }
+        
+        // Validate if offer can be accepted
+        OfferValidationUtility.ValidateIfOfferCanBeAccepted(booking);
+
+        booking.BookingStatus = BookingStatus.Confirmed;
+
+        booking = await _bookingRepository.UpdateAsync(booking);
+
+        var customer = booking.Customer;
         customer.Points -= booking.PointsToUse;
+        // add points
+        var pointsToAdd = booking.Flight.BasePrice * _bookingProperties!.PointsPercentage / 100;
+        customer.Points += (int)pointsToAdd;
         await _customerRepository.UpdateAsync(customer);
 
         return _mapper.Map<BookingDTO>(booking);
+    }
+
+    public async Task<BookingDTO> DeclineBookingOfferAsync(Guid id)
+    {
+        var booking = await _bookingRepository.GetOneAsync(id);
+        if (booking == null)
+        {
+            throw new EntityNotFoundException(ErrorCode.EntityNotFound, "Booking with id: " + id + " not found");
+        }
+        
+        OfferValidationUtility.ValidateIfOfferCanBeDeclined(booking);
+
+        booking = await _bookingRepository.DeleteAsync(booking);
+        
+        return _mapper.Map<BookingDTO>(booking); 
     }
 
     private async Task<Customer> GetCustomer(Guid customerId)

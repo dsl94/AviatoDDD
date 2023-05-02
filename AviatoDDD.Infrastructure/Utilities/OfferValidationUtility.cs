@@ -67,4 +67,31 @@ public static class OfferValidationUtility
             throw new BookingCreationException(ErrorCode.FlightFull, "All seats are sold out for requested flight");
         }
     }
+
+    public static void ValidateIfOfferCanBeAccepted(Booking booking)
+    {
+        if (booking.BookingStatus.Equals(BookingStatus.Confirmed))
+        {
+            throw new BookingCreationException(ErrorCode.AlreadyConfirmed, "Booking is already confirmed and can not be accepted");
+        }
+        ValidateIfFlightCanBeBookedAtThisMoment(booking.Flight.DateAndTime);
+        CheckIfFlightHasFreeSeats(booking.Flight, booking.ClassType);
+        ValidateIfOfferExpired(booking.CreatedAt);
+    }
+
+    public static void ValidateIfOfferCanBeDeclined(Booking booking)
+    {
+        if (booking.BookingStatus.Equals(BookingStatus.Confirmed))
+        {
+            throw new BookingCreationException(ErrorCode.AlreadyConfirmed, "Booking is already confirmed and can not be declined");
+        }
+    }
+
+    private static void ValidateIfOfferExpired(DateTime bookingTime)
+    {
+        if (DateTime.Now > bookingTime.AddMinutes(10))
+        {
+            throw new BookingCreationException(ErrorCode.OfferExpired, "Booking offer expired and it is deleted, please create new one");
+        }
+    }
 }

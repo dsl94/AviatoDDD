@@ -9,4 +9,6 @@ public class ErrorCode
     public const string TooLateToBook = "TOO_LATE_TO_BOOK";
     public const string AlreadyHasBooking = "CUSTOMER_ALREADY_HAS_BOOKING";
     public const string FlightFull = "FLIGHT_FULL";
+    public const string AlreadyConfirmed = "ALREADY_CONFIRMED";
+    public const string OfferExpired = "OFFER_EXPIRED";
 }

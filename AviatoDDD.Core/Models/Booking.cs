@@ -9,6 +9,7 @@ public class Booking
     public Guid FlightId { get; set; }
     public Guid CustomerId { get; set; }
     public int PointsToUse { get; set; }
+    public DateTime CreatedAt { get; set; }
 
     // Navigation properties
     public Flight Flight { get; set; }

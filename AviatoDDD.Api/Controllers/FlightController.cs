@@ -11,10 +11,12 @@ namespace AviatoDDD.Controllers;
 public class FlightController: ControllerBase
 {
     private readonly IFlightService _flightService;
-    
-    public FlightController(IFlightService flightService)
+    private readonly IBookingService _bookingService;
+
+    public FlightController(IFlightService flightService, IBookingService bookingService)
     {
         _flightService = flightService;
+        _bookingService = bookingService;
     }
     
     [HttpGet]
@@ -32,6 +34,15 @@ public class FlightController: ControllerBase
         var flight = await _flightService.GetOneAsync(id);
 
         return Ok(flight);
+    }
+    
+    [HttpGet]
+    [Route("{id:guid}/bookings")]
+    public async Task<IActionResult> GetBookings([FromRoute] Guid id)
+    {
+        var bookings = await _bookingService.GetAllForFlightAsync(id);
+
+        return Ok(bookings);
     }
 
     [HttpPost]
