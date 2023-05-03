@@ -108,6 +108,11 @@ public class BookingService: IBookingService
         
         // Validate if offer can be accepted
         OfferValidationUtility.ValidateIfOfferCanBeAccepted(booking);
+        if (OfferValidationUtility.IsOfferExpired(booking.CreatedAt))
+        {
+            await _bookingRepository.DeleteAsync(booking);
+            throw new BookingCreationException(ErrorCode.OfferExpired, "Booking offer expired and it is deleted, please create new one");
+        }
 
         booking.BookingStatus = BookingStatus.Confirmed;
 

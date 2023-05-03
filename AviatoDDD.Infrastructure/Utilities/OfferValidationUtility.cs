@@ -75,8 +75,7 @@ public static class OfferValidationUtility
             throw new BookingCreationException(ErrorCode.AlreadyConfirmed, "Booking is already confirmed and can not be accepted");
         }
         ValidateIfFlightCanBeBookedAtThisMoment(booking.Flight.DateAndTime);
-        CheckIfFlightHasFreeSeats(booking.Flight, booking.ClassType);
-        ValidateIfOfferExpired(booking.CreatedAt);
+        CheckIfFlightHasFreeSeats(booking.Flight, booking.ClassType); ;
     }
 
     public static void ValidateIfOfferCanBeDeclined(Booking booking)
@@ -87,11 +86,8 @@ public static class OfferValidationUtility
         }
     }
 
-    private static void ValidateIfOfferExpired(DateTime bookingTime)
+    public static Boolean IsOfferExpired(DateTime bookingTime)
     {
-        if (DateTime.Now > bookingTime.AddMinutes(10))
-        {
-            throw new BookingCreationException(ErrorCode.OfferExpired, "Booking offer expired and it is deleted, please create new one");
-        }
+        return DateTime.Now > bookingTime.AddMinutes(10);
     }
 }

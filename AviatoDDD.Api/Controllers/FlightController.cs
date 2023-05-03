@@ -44,6 +44,15 @@ public class FlightController: ControllerBase
 
         return Ok(bookings);
     }
+    
+    [HttpGet]
+    [Route("{id:guid}/load")]
+    public async Task<IActionResult> GetLoad([FromRoute] Guid id)
+    {
+        var load = await _flightService.GetLoadAsync(id);
+
+        return Ok(load);
+    }
 
     [HttpPost]
     [ValidateModel]
