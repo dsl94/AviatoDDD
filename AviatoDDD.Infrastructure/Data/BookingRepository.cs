@@ -43,6 +43,7 @@ public class BookingRepository: IBookingRepository
     {
         return await _dbContext.Bookings
             .Include(booking => booking.Flight)
+            .ThenInclude(flight => flight.Airplane)
             .Include(booking => booking.Customer)
             .SingleOrDefaultAsync(booking => booking.Id == id);
     }
