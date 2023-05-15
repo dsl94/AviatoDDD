@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AviatoDDD.Domain.Data;
 
-public class CustomerRepository: ICustomerRepository
+public class CustomerRepository: ICrudRepository<Customer>
 {
     private readonly AviatoDbContext _dbContext;
     

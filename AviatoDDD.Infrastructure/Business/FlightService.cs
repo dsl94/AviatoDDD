@@ -12,13 +12,13 @@ namespace AviatoDDD.Repository.Business;
 
 public class FlightService: IFlightService
 {
-    private readonly IFlightRepository _flightRepository;
-    private readonly IAirplaneRepository _airplaneRepository;
+    private readonly ICrudRepository<Flight> _flightRepository;
+    private readonly ICrudRepository<Airplane> _airplaneRepository;
     private readonly IBookingRepository _bookingRepository;
     private readonly IMapper _mapper;
     private readonly ILogger<FlightService> _logger;
 
-    public FlightService(IFlightRepository flightRepository, IAirplaneRepository airplaneRepository, IMapper mapper, ILogger<FlightService> logger, IBookingRepository bookingRepository)
+    public FlightService(ICrudRepository<Flight> flightRepository, ICrudRepository<Airplane> airplaneRepository, IMapper mapper, ILogger<FlightService> logger, IBookingRepository bookingRepository)
     {
         _flightRepository = flightRepository;
         _airplaneRepository = airplaneRepository;

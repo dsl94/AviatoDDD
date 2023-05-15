@@ -11,11 +11,11 @@ namespace AviatoDDD.Repository.Business;
 
 public class CustomerService: ICustomerService
 {
-    private readonly ICustomerRepository _customerRepository;
+    private readonly ICrudRepository<Customer> _customerRepository;
     private readonly IMapper _mapper;
     private readonly ILogger<CustomerService> _logger;
 
-    public CustomerService(ICustomerRepository customerRepository, IMapper mapper, ILogger<CustomerService> logger)
+    public CustomerService(ICrudRepository<Customer> customerRepository, IMapper mapper, ILogger<CustomerService> logger)
     {
         _customerRepository = customerRepository;
         _mapper = mapper;

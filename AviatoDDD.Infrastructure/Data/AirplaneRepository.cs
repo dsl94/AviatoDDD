@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AviatoDDD.Domain.Data;
 
-public class AirplaneRepository: IAirplaneRepository
+public class AirplaneRepository: ICrudRepository<Airplane>
 {
     private readonly AviatoDbContext _dbContext;
     
@@ -31,14 +31,14 @@ public class AirplaneRepository: IAirplaneRepository
         return airplane;
     }
 
-    public async Task<Airplane> UpdateAsync(Airplane airplane)
+    public async Task<Airplane?> UpdateAsync(Airplane airplane)
     {
         await _dbContext.SaveChangesAsync();
 
         return airplane;
     }
 
-    public async Task<Airplane> DeleteAsync(Airplane airplane)
+    public async Task<Airplane?> DeleteAsync(Airplane airplane)
     {
         _dbContext.Airplanes.Remove(airplane);
         await _dbContext.SaveChangesAsync();

@@ -10,11 +10,11 @@ namespace AviatoDDD.Repository.Business;
 
 public class AirplaneService: IAirplaneService
 {
-    private readonly IAirplaneRepository _airplaneRepository;
+    private readonly ICrudRepository<Airplane> _airplaneRepository;
     private readonly IMapper _mapper;
     private readonly ILogger<AirplaneService> _logger;
 
-    public AirplaneService(IAirplaneRepository airplaneRepository, IMapper mapper, ILogger<AirplaneService> logger)
+    public AirplaneService(ICrudRepository<Airplane> airplaneRepository, IMapper mapper, ILogger<AirplaneService> logger)
     {
         _airplaneRepository = airplaneRepository;
         _mapper = mapper;

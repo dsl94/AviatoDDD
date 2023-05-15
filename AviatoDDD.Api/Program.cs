@@ -1,4 +1,6 @@
 using AviatoDDD.Domain.Data;
+using AviatoDDD.Domain.Enums;
+using AviatoDDD.Domain.Models;
 using AviatoDDD.Domain.Repositories;
 using AviatoDDD.Domain.Services;
 using AviatoDDD.Middlewares;
@@ -26,9 +28,9 @@ builder.Services.AddDbContext<AviatoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AviatoConnectionString")));
 
 // Repositories
-builder.Services.AddScoped<IAirplaneRepository, AirplaneRepository>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+builder.Services.AddScoped<ICrudRepository<Flight>, FlightRepository>();
+builder.Services.AddScoped<ICrudRepository<Customer>, CustomerRepository>();
+builder.Services.AddScoped<ICrudRepository<Airplane>, AirplaneRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 
 builder.Services.AddAutoMapper(typeof(AviatoMappingProfiles));

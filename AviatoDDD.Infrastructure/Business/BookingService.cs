@@ -14,15 +14,15 @@ namespace AviatoDDD.Repository.Business;
 public class BookingService: IBookingService
 {
     private readonly IBookingRepository _bookingRepository;
-    private readonly IFlightRepository _flightRepository;
-    private readonly ICustomerRepository _customerRepository;
+    private readonly ICrudRepository<Flight> _flightRepository;
+    private readonly ICrudRepository<Customer> _customerRepository;
     private readonly IMapper _mapper;
     private readonly BookingProperties? _bookingProperties;
 
     public BookingService(
         IBookingRepository bookingRepository,
-        IFlightRepository flightRepository,
-        ICustomerRepository customerRepository,
+        ICrudRepository<Flight> flightRepository,
+        ICrudRepository<Customer> customerRepository,
         IConfiguration configuration,
         IMapper mapper)
     {
