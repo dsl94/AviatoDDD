@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oLT8d1mSlabifAeh7NigFikVEKClCcx9xlepVRhffPoga6qarzxr7OIuVgAo0Qvru1q1XV0FVQ3qoNb7DCa34Q==",
+  "dgSpecHash": "8/IkDkvGgttZT5txIqO9c9i3E2Kj5Sg81WsQuS90zR5LuPeab2KjzuGR8H/fzUcoYDpxKQS2K6YFZlBXubMx3A==",
   "success": true,
   "projectFilePath": "/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/AviatoDDD.Api.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "/Users/nemanja/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/nemanja/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/nemanja/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/nemanja/.nuget/packages/mediatr/12.0.1/mediatr.12.0.1.nupkg.sha512",
+    "/Users/nemanja/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/nemanja/.nuget/packages/microsoft.aspnetcore.openapi/7.0.4/microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "/Users/nemanja/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/nemanja/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

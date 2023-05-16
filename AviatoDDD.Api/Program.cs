@@ -1,3 +1,4 @@
+using System.Reflection;
 using AviatoDDD.Domain.Data;
 using AviatoDDD.Domain.Enums;
 using AviatoDDD.Domain.Models;
@@ -36,6 +37,7 @@ builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddAutoMapper(typeof(AviatoMappingProfiles));
 
 // Services
+builder.Services.AddMediatR(_=>_.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<IAirplaneService, AirplaneService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IFlightService, FlightService>();

@@ -101,3 +101,5 @@
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.Console.dll
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.Debug.dll
 /Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/Serilog.Sinks.File.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/MediatR.dll
+/Users/nemanja/Documents/elfak/napredniWeb/AviatoDDD/AviatoDDD.Api/bin/Debug/net7.0/MediatR.Contracts.dll

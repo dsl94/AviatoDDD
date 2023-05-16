@@ -1,7 +1,10 @@
+using AviatoDDD.Commands;
 using AviatoDDD.Domain.DTO.Airplane;
 using AviatoDDD.Domain.DTO.Booking;
 using AviatoDDD.Domain.Services;
 using AviatoDDD.Filters;
+using AviatoDDD.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,17 +14,17 @@ namespace AviatoDDD.Controllers;
 [Route("[controller]")]
 public class BookingController: ControllerBase
 {
-    private readonly IBookingService _bookingService;
+    private readonly IMediator _mediator;
 
-    public BookingController(IBookingService bookingService)
+    public BookingController(IMediator mediator)
     {
-        _bookingService = bookingService;
+        _mediator = mediator;
     }
     
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var bookings = await _bookingService.GetAllAsync();
+        var bookings = await _mediator.Send(new GetAllBookingsQuery());
 
         return Ok(bookings);
     }
@@ -30,7 +33,11 @@ public class BookingController: ControllerBase
     [Route("{id:guid}")]
     public async Task<IActionResult> GetById([FromRoute] Guid id)
     {
-        var booking = await _bookingService.GetOneAsync(id);
+        var query = new GetBookingByIdQuery
+        {
+            Id = id
+        };
+        var booking = await _mediator.Send(query);
 
         return Ok(booking);
     }
@@ -39,26 +46,40 @@ public class BookingController: ControllerBase
     [ValidateModel]
     public async Task<IActionResult> Create([FromBody] CreateBookingOfferDTO dto)
     {
-        var created = await _bookingService.CreateBookingOfferAsync(dto);
+        var command = new CreateBookingOfferCommand()
+        {
+            BookingOffer = dto
+        };
+        await _mediator.Publish(command);
 
-        return CreatedAtAction(nameof(GetById), new {id = created.Id}, created);
+        return Ok();
     }
     
     [HttpPut]
     [Route("{id:guid}/accept")]
     public async Task<IActionResult> AcceptOffer([FromRoute] Guid id)
     {
-        var accepted = await _bookingService.AcceptBookingOfferAsync(id);
+        var command = new AcceptBookingCommand()
+        {
+            Id = id
+        };
 
-        return Ok(accepted);
+        await _mediator.Publish(command);
+
+        return Ok();
     }
     
     [HttpPut]
     [Route("{id:guid}/decline")]
     public async Task<IActionResult> DeclineOffer([FromRoute] Guid id)
     {
-        var declined = await _bookingService.DeclineBookingOfferAsync(id);
+        var command = new DeclineBookingCommand()
+        {
+            Id = id
+        };
 
-        return Ok(declined);
+        await _mediator.Publish(command);
+
+        return Ok();
     }
 }
